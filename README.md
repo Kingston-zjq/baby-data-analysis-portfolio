@@ -23,7 +23,7 @@
 | 谁在买？ | 宝宝画像 | 月龄显著影响品类，性别无影响 |
 | 能否预测行为？ | 机器学习 | 囤货预测 ROC-AUC 0.778 |
 
-📄 **完整可视化报告：[`reports/report.html`](./reports/report.html)**（自包含单文件，可直接浏览器打开）
+📄 **完整可视化报告： https://kingston-zjq.github.io/baby-data-analysis-portfplio/reports/report.html（自包含单文件，可直接浏览器打开）
 
 ---
 
