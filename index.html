@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>母婴电商购物行为数据分析 | 项目主页</title>
+<meta name="description" content="基于阿里天池公开数据集，对母婴电商平台 29,971 条交易记录做端到端分析：数据质量体检、业务指标、可视化报告与机器学习建模。">
+<style>
+:root{
+  --primary:#4C7DF0; --accent:#FF7A9C; --teal:#3DC7A0; --amber:#FFB020;
+  --ink:#1F2A37; --ink2:#4B5563; --muted:#8C9BAB; --line:#E6EAF0;
+  --bg:#F7F9FC; --card:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Segoe UI",Roboto,sans-serif;
+  line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px;}
+.hero{
+  background:linear-gradient(120deg,#4C7DF0 0%,#6E8CF5 46%,#FF9EB5 100%);
+  color:#fff;padding:70px 0 76px;
+}
+.eyebrow{
+  display:inline-block;font-size:12.5px;letter-spacing:2.5px;
+  background:rgba(255,255,255,.18);border-radius:990px;padding:5px 14px;margin-bottom:20px;
+}
+h1{font-size:clamp(25px,4.2vw,37px);line-height:1.28;font-weight:700;letter-spacing:.4px;}
+.sub{font-size:15px;opacity:.93;max-width:700px;margin:16px 0 32px;}
+.btn{
+  display:inline-block;background:#fff;color:var(--primary);font-weight:700;
+  padding:14px 34px;border-radius:990px;text-decoration:none;font-size:15.5px;
+  box-shadow:0 8px 22px rgba(18,38,88,.2);transition:transform .15s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));
+  gap:16px;margin-top:-40px;
+}
+.stat{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:22px 20px;box-shadow:0 6px 18px rgba(31,42,55,.06);
+}
+.stat .num{font-size:28px;font-weight:700;line-height:1.1;letter-spacing:-.5px;}
+.stat .lab{font-size:12.8px;color:var(--ink2);margin-top:9px;line-height:1.55;}
+.n1 .num{color:var(--primary);} .n2 .num{color:var(--accent);}
+.n3 .num{color:var(--teal);}   .n4 .num{color:var(--amber);}
+h2{font-size:19px;font-weight:700;margin:56px 0 18px;}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:16px;}
+.card{
+  display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:22px 22px 20px;text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s;
+}
+.card:hover{border-color:#BCD0F7;box-shadow:0 10px 24px rgba(76,125,240,.1);transform:translateY(-2px);}
+.card .t{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:7px;}
+.card .d{font-size:13.2px;color:var(--ink2);line-height:1.6;}
+.card .arrow{display:block;margin-top:14px;font-size:12.5px;color:var(--primary);font-weight:700;letter-spacing:.3px;}
+.card.disabled{opacity:.55;pointer-events:none;}
+.note{
+  background:var(--card);border:1px solid var(--line);border-left:4px solid var(--primary);
+  border-radius:12px;padding:22px 24px;margin-top:44px;
+}
+.note h3{font-size:15px;font-weight:700;margin-bottom:12px;}
+.note p{font-size:13.6px;color:var(--ink2);margin-bottom:9px;}
+.note p:last-child{margin-bottom:0;}
+code{
+  background:#EEF3FC;color:#2F4C86;border-radius:5px;padding:2px 6px;
+  font-family:Consolas,Monaco,"Courier New",monospace;font-size:12.8px;
+}
+footer{
+  text-align:center;color:var(--muted);font-size:12.8px;
+  padding:44px 24px 56px;line-height:1.8;
+}
+@media (max-width:560px){
+  .hero{padding:52px 0 64px;} .stats{margin-top:-28px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">数据分析项目</span>
+    <h1>母婴电商购物行为数据分析</h1>
+    <p class="sub">基于阿里天池公开数据集，对某母婴电商平台 29,971 条交易记录做端到端分析：数据质量体检、业务指标计算、可视化呈现与机器学习建模。</p>
+    <a class="btn" href="reports/report.html">查看完整分析报告</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="stats">
+    <div class="stat n1">
+      <div class="num">13.1%</div>
+      <div class="lab">单笔最大订单占全部件数比重，据此建立双口径指标</div>
+    </div>
+    <div class="stat n2">
+      <div class="num">5.19×</div>
+      <div class="lab">双11 日均件数拉动倍数，而 618 仅 0.64×</div>
+    </div>
+    <div class="stat n3">
+      <div class="num">p=0.79</div>
+      <div class="lab">性别与品类偏好卡方检验，无显著关联</div>
+    </div>
+    <div class="stat n4">
+      <div class="num">0.778</div>
+      <div class="lab">囤货订单识别模型 ROC-AUC（5 折交叉验证）</div>
+    </div>
+  </section>
+
+  <h2>查看内容</h2>
+  <section class="links">
+    <a class="card" href="reports/report.html">
+      <div class="t">完整分析报告</div>
+      <div class="d">16 张图表、18 张数据表，覆盖时间节奏、品类结构、异常订单与宝宝画像五个方向。</div>
+      <span class="arrow">打开报告 →</span>
+    </a>
+    <a class="card" href="notebooks/mum_baby_analysis.ipynb" download>
+      <div class="t">交互式分析笔记</div>
+      <div class="d">Jupyter Notebook，含全部代码与运行输出，可逐格复现每个结论。</div>
+      <span class="arrow">下载 Notebook →</span>
+    </a>
+    <a class="card" href="data/README.md">
+      <div class="t">数据字典</div>
+      <div class="d">字段含义、取值范围与口径说明，含性别编码冲突的考证记录。</div>
+      <span class="arrow">查看数据字典 →</span>
+    </a>
+  </section>
+
+  <div class="note">
+    <h3>关于这个项目</h3>
+    <p>分析的第一步不是画图，而是数据质量体检。体检发现该样本是<strong>按行随机抽样</strong>而非用户行为序列——29,971 笔交易对应 29,944 个用户，人均仅 1.0009 笔。</p>
+    <p>因此项目<strong>主动放弃</strong>了 RFM、复购周期、用户生命周期等依赖「单用户多记录」的常规框架，而不是硬做出一堆看似完整、实则无效的结论。经典的性别预测任务也做了实测：ROC-AUC 仅 0.4931，与随机猜测无异，故未作为交付成果。</p>
+    <p>全部结果可通过 <code>python scripts/run_all.py</code> 一条命令复现，耗时约 17 秒。</p>
+  </div>
+
+  <footer>
+    数据来源：阿里天池「淘宝母婴购物数据集」公开采样样本<br>
+    技术栈：Python · pandas · scikit-learn · matplotlib ｜ 代码 2,567 行，分 7 个模块
+  </footer>
+
+</div>
+
+</body>
+</html>

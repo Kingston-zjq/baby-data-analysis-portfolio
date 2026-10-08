@@ -7,6 +7,10 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3%2B-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 [![License](https://img.shields.io/badge/License-MIT-3DC7A0)](./LICENSE)
 [![Data](https://img.shields.io/badge/Data-29%2C971%20%E6%9D%A1%E4%BA%A4%E6%98%93-FF7A9C)](./data/README.md)
+[![Pages](https://img.shields.io/badge/GitHub%20Pages-%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88-3DC7A0?logo=githubpages&logoColor=white)](https://kingston-zjq.github.io/baby-data-analysis-portfplio/)
+
+> **在线预览**：https://kingston-zjq.github.io/baby-data-analysis-portfplio/
+> **GitHub 仓库**：https://github.com/Kingston-zjq/baby-data-analysis-portfplio
 
 ---
 
@@ -23,7 +27,14 @@
 | 谁在买？ | 宝宝画像 | 月龄显著影响品类，性别无影响 |
 | 能否预测行为？ | 机器学习 | 囤货预测 ROC-AUC 0.778 |
 
-📄 **完整可视化报告： https://kingston-zjq.github.io/baby-data-analysis-portfplio/reports/report.html（自包含单文件，可直接浏览器打开）
+📄 **在线查看完整报告**：
+- GitHub Pages（推荐）：https://kingston-zjq.github.io/baby-data-analysis-portfplio/reports/report.html
+- 备用托管：https://mum-baby-analysis.app.workbuddy.host/
+
+> **关于 `.html` 文件的提示**
+> 仓库内的 `reports/report.html` 是自包含单文件报告（16 张图全部以 base64 内嵌，无外部依赖）。
+> 但 GitHub **代码页**对 `.html` 文件只展示源码，不会渲染成网页——点开看到一堆代码是正常现象，不是文件损坏。
+> 要在浏览器中查看排版效果，请使用上方 GitHub Pages 链接（Pages 会正常渲染 HTML），或把文件下载到本地后双击打开。
 
 ---
 
@@ -144,6 +155,8 @@
 
 ```
 mum-baby-analysis/
+├── index.html                    项目主页（GitHub Pages / 在线托管入口）
+├── .nojekyll                     禁用 Jekyll，保证静态资源原样发布
 ├── data/
 │   ├── raw/                      原始数据（公开采样样本）
 │   ├── processed/                清洗后数据集（脚本自动生成）

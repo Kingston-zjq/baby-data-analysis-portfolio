@@ -1,0 +1,35 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ---- 虚拟环境 ----
+.venv/
+venv/
+env/
+envs/
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- 分析中间产物 ----
+# 清洗后的数据集可由 data/raw 重新生成，不纳入版本管理
+data/processed/
+
+# 图表与指标表会提交（README 与报告需要引用），如不需要可取消注释
+# reports/figures/
+# reports/tables/
+
+# ---- 临时文件 ----
+*.log
+*.tmp
