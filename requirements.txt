@@ -14,3 +14,6 @@ matplotlib>=3.7
 # 交互式分析笔记
 jupyter>=1.0
 nbformat>=5.9
+
+# 繁简混排检查（scripts/check_chinese.py）
+opencc-python-reimplemented>=0.1.7

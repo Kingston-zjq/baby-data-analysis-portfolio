@@ -57,7 +57,7 @@
 
 ### 2️⃣ 抓到了一条关键的数据质量问题
 
-![异常订单识别](reports/figures/fig16_outliers.png)
+![异常订单识别](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig16_outliers.png)
 
 单笔最高 **10,000 件**（童装/童鞋），一笔即占全部件数的 **13.1%**；**Top10 大单合计占 27.5%**。
 
@@ -66,7 +66,7 @@
 
 ### 3️⃣ 用数据推翻了一个「行业常识」
 
-![大促拉动效果](reports/figures/fig04_promo_effect.png)
+![大促拉动效果](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig04_promo_effect.png)
 
 **双11 拉动 5.19 倍，双12 拉动 2.26 倍，而 618 只有 0.64 倍**（低于平日水平）。
 
@@ -75,7 +75,7 @@
 
 ### 4️⃣ 两个品类的运营逻辑完全不同
 
-![品类结构](reports/figures/fig05_cat1_share.png)
+![品类结构](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig05_cat1_share.png)
 
 | 品类 | 笔数占比 | 单笔件数 | 购买逻辑 | 运营建议 |
 | :--- | ---: | ---: | :--- | :--- |
@@ -87,7 +87,7 @@
 
 ### 5️⃣ 完成一次规范的机器学习流程
 
-![模型评估](reports/figures/fig14_model_eval.png)
+![模型评估](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig14_model_eval.png)
 
 预测「单笔订单是否会囤货（≥3 件）」，正类占比 6.13% 的不平衡分类问题：
 
@@ -95,7 +95,7 @@
 - **44 维特征**，严格排除 `buy_mount` 相关字段以避免标签泄漏
 - 对比逻辑回归与随机森林，并说明**为何最终选择更简单、更可解释的模型**
 
-![特征重要性](reports/figures/fig15_feature_importance.png)
+![特征重要性](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig15_feature_importance.png)
 
 ---
 
@@ -103,15 +103,15 @@
 
 | 月度趋势 | 季节性规律 |
 | :---: | :---: |
-| ![月度趋势](reports/figures/fig01_monthly_trend.png) | ![季节性](reports/figures/fig02_seasonality.png) |
+| ![月度趋势](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig01_monthly_trend.png) | ![季节性](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig02_seasonality.png) |
 
 | 购买量长尾分布 | 月龄 × 品类偏好 |
 | :---: | :---: |
-| ![购买量分布](reports/figures/fig07_buy_mount_dist.png) | ![月龄偏好](reports/figures/fig10_age_category_heatmap.png) |
+| ![购买量分布](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig07_buy_mount_dist.png) | ![月龄偏好](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig10_age_category_heatmap.png) |
 
 | 二级类目帕累托 | 性别假设检验 |
 | :---: | :---: |
-| ![帕累托](reports/figures/fig06_pareto.png) | ![性别检验](reports/figures/fig11_gender_category.png) |
+| ![帕累托](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig06_pareto.png) | ![性别检验](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig11_gender_category.png) |
 
 <details>
 <summary>查看全部 16 张图表清单</summary>
@@ -171,6 +171,7 @@ mum-baby-analysis/
 │   └── report.py                 自包含 HTML 报告生成
 ├── scripts/
 │   ├── run_all.py                一键运行完整流程
+│   ├── check_chinese.py          繁简混排检查（--strict 可用于 CI）
 │   └── build_report.py           生成 HTML 报告
 ├── notebooks/
 │   └── mum_baby_analysis.ipynb   交互式分析笔记（含全部输出）
@@ -191,16 +192,23 @@ mum-baby-analysis/
 # 1. 安装依赖
 pip install -r requirements.txt
 
-# 2. 一键运行完整流程（加载 → 清洗 → 指标 → 绘图 → 建模，约 20 秒）
+# 2. 一键运行完整流程（加载 → 清洗 → 指标 → 绘图 → 建模 → 繁简检查，约 45 秒）
 python scripts/run_all.py
 
 # 3. 生成 HTML 报告
 python scripts/build_report.py
+
+# 4. 单独检查文档是否简繁混排（发现繁体即以退出码 1 结束）
+python scripts/check_chinese.py --strict
 ```
 
 运行完成后，所有图表输出到 `reports/figures/`，所有指标明细输出到 `reports/tables/`。
 
 也可以直接打开 `notebooks/mum_baby_analysis.ipynb` 逐步查看分析过程。
+
+> **文字规范**：本项目所有文档、图表标签与代码注释统一使用**简体中文**。
+> 该约定由 `scripts/check_chinese.py`（基于 OpenCC 逐文件转换比对）自动保障，
+> 并已接入 `run_all.py` 主流程，每次运行都会校验。
 
 ---
 

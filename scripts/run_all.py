@@ -10,6 +10,7 @@
 import sys
 import time
 import warnings
+import subprocess
 from pathlib import Path
 
 import pandas as pd
@@ -104,6 +105,18 @@ def main():
 
     feas = modeling.evaluate_gender_feasibility(trade, baby)
     print(f"\n  [性别预测可行性评估]\n{feas.to_string(index=False)}")
+
+    banner("附加检查  繁简字一致性")
+    rc = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check_chinese.py")],
+        capture_output=True, text=True, cwd=ROOT,
+    )
+    # 只打印结论行，避免刷屏
+    for line in rc.stdout.splitlines():
+        if "✅" in line or "❌" in line:
+            print(f"  {line.strip()}")
+    if rc.returncode != 0:
+        print("  ⚠️  检测到繁体字，请运行 python scripts/check_chinese.py 查看详情")
 
     print(f"\n完成，总耗时 {time.time() - t0:.1f}s")
     print(f"图表目录：{ROOT / 'reports' / 'figures'}")

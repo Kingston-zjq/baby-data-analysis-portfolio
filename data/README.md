@@ -1,5 +1,12 @@
 # 数据说明
 
+> **语言说明**：本仓库所有文档、图表标签与代码注释均统一使用**简体中文**，不含繁体字。
+> 该约定由 `scripts/check_chinese.py` 自动检查保障：
+>
+> ```bash
+> python scripts/check_chinese.py --strict   # 发现繁体字即以退出码 1 结束
+> ```
+
 ## 数据来源
 
 本项目的原始数据来自 **阿里云天池 · 淘宝母婴购物数据集（Baby Goods Info Data）**。
