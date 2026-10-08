@@ -7,10 +7,10 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3%2B-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 [![License](https://img.shields.io/badge/License-MIT-3DC7A0)](./LICENSE)
 [![Data](https://img.shields.io/badge/Data-29%2C971%20%E6%9D%A1%E4%BA%A4%E6%98%93-FF7A9C)](./data/README.md)
-[![Pages](https://img.shields.io/badge/GitHub%20Pages-%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88-3DC7A0?logo=githubpages&logoColor=white)](https://kingston-zjq.github.io/baby-data-analysis-portfplio/)
+[![Pages](https://img.shields.io/badge/GitHub%20Pages-%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88-3DC7A0?logo=githubpages&logoColor=white)](https://kingston-zjq.github.io/baby-data-analysis-portfolio/)
 
-> **在线预览**：https://kingston-zjq.github.io/baby-data-analysis-portfplio/
-> **GitHub 仓库**：https://github.com/Kingston-zjq/baby-data-analysis-portfplio
+> **在线预览**：https://kingston-zjq.github.io/baby-data-analysis-portfolio/
+> **GitHub 仓库**：https://github.com/Kingston-zjq/baby-data-analysis-portfolio
 
 ---
 
@@ -28,7 +28,7 @@
 | 能否预测行为？ | 机器学习 | 囤货预测 ROC-AUC 0.778 |
 
 📄 **在线查看完整报告**：
-- GitHub Pages（推荐）：https://kingston-zjq.github.io/baby-data-analysis-portfplio/reports/report.html
+- GitHub Pages（推荐）：https://kingston-zjq.github.io/baby-data-analysis-portfolio/reports/report.html
 - 备用托管：https://mum-baby-analysis.app.workbuddy.host/
 
 > **关于 `.html` 文件的提示**
@@ -57,7 +57,7 @@
 
 ### 2️⃣ 抓到了一条关键的数据质量问题
 
-![异常订单识别](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig16_outliers.png)
+![异常订单识别](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig16_outliers.png)
 
 单笔最高 **10,000 件**（童装/童鞋），一笔即占全部件数的 **13.1%**；**Top10 大单合计占 27.5%**。
 
@@ -66,7 +66,7 @@
 
 ### 3️⃣ 用数据推翻了一个「行业常识」
 
-![大促拉动效果](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig04_promo_effect.png)
+![大促拉动效果](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig04_promo_effect.png)
 
 **双11 拉动 5.19 倍，双12 拉动 2.26 倍，而 618 只有 0.64 倍**（低于平日水平）。
 
@@ -75,7 +75,7 @@
 
 ### 4️⃣ 两个品类的运营逻辑完全不同
 
-![品类结构](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig05_cat1_share.png)
+![品类结构](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig05_cat1_share.png)
 
 | 品类 | 笔数占比 | 单笔件数 | 购买逻辑 | 运营建议 |
 | :--- | ---: | ---: | :--- | :--- |
@@ -87,7 +87,7 @@
 
 ### 5️⃣ 完成一次规范的机器学习流程
 
-![模型评估](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig14_model_eval.png)
+![模型评估](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig14_model_eval.png)
 
 预测「单笔订单是否会囤货（≥3 件）」，正类占比 6.13% 的不平衡分类问题：
 
@@ -95,7 +95,7 @@
 - **44 维特征**，严格排除 `buy_mount` 相关字段以避免标签泄漏
 - 对比逻辑回归与随机森林，并说明**为何最终选择更简单、更可解释的模型**
 
-![特征重要性](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig15_feature_importance.png)
+![特征重要性](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig15_feature_importance.png)
 
 ---
 
@@ -103,15 +103,15 @@
 
 | 月度趋势 | 季节性规律 |
 | :---: | :---: |
-| ![月度趋势](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig01_monthly_trend.png) | ![季节性](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig02_seasonality.png) |
+| ![月度趋势](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig01_monthly_trend.png) | ![季节性](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig02_seasonality.png) |
 
 | 购买量长尾分布 | 月龄 × 品类偏好 |
 | :---: | :---: |
-| ![购买量分布](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig07_buy_mount_dist.png) | ![月龄偏好](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig10_age_category_heatmap.png) |
+| ![购买量分布](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig07_buy_mount_dist.png) | ![月龄偏好](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig10_age_category_heatmap.png) |
 
 | 二级类目帕累托 | 性别假设检验 |
 | :---: | :---: |
-| ![帕累托](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig06_pareto.png) | ![性别检验](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfplio@main/reports/figures/fig11_gender_category.png) |
+| ![帕累托](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig06_pareto.png) | ![性别检验](https://cdn.jsdelivr.net/gh/Kingston-zjq/baby-data-analysis-portfolio@main/reports/figures/fig11_gender_category.png) |
 
 <details>
 <summary>查看全部 16 张图表清单</summary>
