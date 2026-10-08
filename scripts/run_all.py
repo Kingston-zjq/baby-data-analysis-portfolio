@@ -118,6 +118,16 @@ def main():
     if rc.returncode != 0:
         print("  ⚠️  检测到繁体字，请运行 python scripts/check_chinese.py 查看详情")
 
+    # notebook 内嵌图片会让文件膨胀到 GitHub 无法渲染，每次生成后必须压缩
+    nb = ROOT / "notebooks" / "mum_baby_analysis.ipynb"
+    if nb.exists():
+        banner("附加步骤  压缩 notebook（保证 GitHub 可渲染）")
+        rc = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "optimize_notebook.py")],
+            capture_output=True, text=True, cwd=ROOT,
+        )
+        print("  " + (rc.stdout.strip() or rc.stderr.strip()).replace("\n", "\n  "))
+
     print(f"\n完成，总耗时 {time.time() - t0:.1f}s")
     print(f"图表目录：{ROOT / 'reports' / 'figures'}")
     print(f"数据表目录：{ROOT / 'reports' / 'tables'}")

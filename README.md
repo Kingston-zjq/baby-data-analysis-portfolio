@@ -172,6 +172,8 @@ mum-baby-analysis/
 ├── scripts/
 │   ├── run_all.py                一键运行完整流程
 │   ├── check_chinese.py          繁简混排检查（--strict 可用于 CI）
+│   ├── optimize_notebook.py      压缩 notebook 内嵌图片（保证 GitHub 正常渲染）
+│   ├── build_notebook.py         生成分析 notebook
 │   └── build_report.py           生成 HTML 报告
 ├── notebooks/
 │   └── mum_baby_analysis.ipynb   交互式分析笔记（含全部输出）
@@ -192,7 +194,7 @@ mum-baby-analysis/
 # 1. 安装依赖
 pip install -r requirements.txt
 
-# 2. 一键运行完整流程（加载 → 清洗 → 指标 → 绘图 → 建模 → 繁简检查，约 45 秒）
+# 2. 一键运行完整流程（加载 → 清洗 → 指标 → 绘图 → 建模 → 繁简检查 → 压缩notebook，约 45 秒）
 python scripts/run_all.py
 
 # 3. 生成 HTML 报告
@@ -205,6 +207,19 @@ python scripts/check_chinese.py --strict
 运行完成后，所有图表输出到 `reports/figures/`，所有指标明细输出到 `reports/tables/`。
 
 也可以直接打开 `notebooks/mum_baby_analysis.ipynb` 逐步查看分析过程。
+
+> **关于 notebook 体积**：notebook 内嵌 15 张图表，原始体积约 2.4 MB，会超出 GitHub
+> 渲染器的体积上限，页面将直接报 `Unable to render code block`。
+> `scripts/optimize_notebook.py` 会把图片等比缩放并重新编码，将体积压到 1 MB 以内
+> （实测 2.37 MB → 0.67 MB），并已接入 `run_all.py` 自动执行。
+> 重新生成 notebook 后若仍遇到该报错，手动执行：
+>
+> ```bash
+> python scripts/optimize_notebook.py
+> ```
+>
+> 如仍偶发渲染失败（GitHub 渲染器为纯前端实现，偶有超时），可用官方 nbviewer 兜底：
+> <https://nbviewer.org/github/Kingston-zjq/baby-data-analysis-portfolio/blob/main/notebooks/mum_baby_analysis.ipynb>
 
 > **文字规范**：本项目所有文档、图表标签与代码注释统一使用**简体中文**。
 > 该约定由 `scripts/check_chinese.py`（基于 OpenCC 逐文件转换比对）自动保障，
